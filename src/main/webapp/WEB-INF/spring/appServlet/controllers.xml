@@ -11,12 +11,18 @@
 
 	<context:component-scan base-package="it.nicogiangregorio.home" />
 	
+	<mvc:annotation-driven/>
+
 	<dwr:controller id="dwrController" debug="true">
 		<dwr:config-param name="activeReverseAjaxEnabled" value="true"/>
 	</dwr:controller>
-<!-- 	<dwr:url-mapping /> -->
 	<dwr:configuration>
-<!-- 		<dwr:convert type="bean" class="org.uk.ltd.dwr.dev.model.Address" /> -->
+		<dwr:convert type="bean" class="it.nicogiangregorio.home.dwr.CitizenLocationDwr" />
 	</dwr:configuration>
-	<mvc:annotation-driven/>
+	<dwr:url-mapping />
+	<bean id="citizenDwrService" class="it.nicogiangregorio.home.dwr.CitizenDwrService">
+		<dwr:remote javascript="CitizenServiceDwr">
+			<dwr:include method="getCitizenLocations" />
+		</dwr:remote>
+	</bean>
 </beans>

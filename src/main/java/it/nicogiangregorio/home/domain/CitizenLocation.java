@@ -11,7 +11,6 @@ public class CitizenLocation {
 	
 	public CitizenLocation(String idCitizen, String name, String surname,
 			int age, String dscCity, String dscRegione) {
-		super();
 		this.idCitizen = idCitizen;
 		this.name = name;
 		this.surname = surname;
