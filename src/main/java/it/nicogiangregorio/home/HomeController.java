@@ -23,7 +23,7 @@ public class HomeController {
 		
         System.out.println("HomeController: Passing through...");
         System.out.println("number of locations: " + locations.size());
-        return "WEB-INF/views/home.jsp";
+        return "home";
     }
 	
 	@RequestMapping("/simple")

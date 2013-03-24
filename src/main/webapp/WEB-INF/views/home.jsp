@@ -3,6 +3,7 @@
 <html>
     <head>
         <title>Home</title>
+        <script></script>
     </head>
     <body>
         <h1>Ciao Nico!</h1>

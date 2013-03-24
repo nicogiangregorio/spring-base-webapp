@@ -12,6 +12,7 @@
 		<org.springframework-version>3.2.0.RELEASE</org.springframework-version>
 		<org.aspectj-version>1.6.10</org.aspectj-version>
 		<org.slf4j-version>1.6.1</org.slf4j-version>
+		<org.log4j-version>1.2.17</org.log4j-version>
 	</properties>
 	<dependencies>
 		<!-- Spring -->
@@ -42,7 +43,12 @@
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjrt</artifactId>
 			<version>${org.aspectj-version}</version>
-		</dependency>	
+		</dependency>
+		<dependency>
+			<groupId>org.directwebremoting</groupId>
+			<artifactId>dwr</artifactId>
+			<version>2.0.2</version>
+		</dependency>
 		
 		<!-- Logging -->
 		<dependency>
@@ -65,7 +71,7 @@
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
-			<version>1.2.16</version>
+			<version>${org.log4j-version}</version>
 			<scope>runtime</scope>
 		</dependency>
 
@@ -113,49 +119,49 @@
 		</dependency>
 
 		<!-- Jackson JSON Processor -->
-		<dependency>
-			<groupId>org.codehaus.jackson</groupId>
-			<artifactId>jackson-mapper-asl</artifactId>
-			<version>1.8.1</version>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.codehaus.jackson</groupId> -->
+<!-- 			<artifactId>jackson-mapper-asl</artifactId> -->
+<!-- 			<version>1.8.1</version> -->
+<!-- 		</dependency> -->
 
 		<!-- Rome Atom+RSS -->
-		<dependency>
-			<groupId>net.java.dev.rome</groupId>
-			<artifactId>rome</artifactId>
-			<version>1.0.0</version>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>net.java.dev.rome</groupId> -->
+<!-- 			<artifactId>rome</artifactId> -->
+<!-- 			<version>1.0.0</version> -->
+<!-- 		</dependency> -->
 		
 		<!-- JSR 303 with Hibernate Validator -->
-		<dependency>
-			<groupId>javax.validation</groupId>
-			<artifactId>validation-api</artifactId>
-			<version>1.0.0.GA</version>
-		</dependency>
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-validator</artifactId>
-			<version>4.1.0.Final</version>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>javax.validation</groupId> -->
+<!-- 			<artifactId>validation-api</artifactId> -->
+<!-- 			<version>1.0.0.GA</version> -->
+<!-- 		</dependency> -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.hibernate</groupId> -->
+<!-- 			<artifactId>hibernate-validator</artifactId> -->
+<!-- 			<version>4.1.0.Final</version> -->
+<!-- 		</dependency> -->
 		
 		<!-- Joda Time Library -->	
-		<dependency>
-			<groupId>joda-time</groupId>
-			<artifactId>joda-time</artifactId>
-			<version>1.6.2</version>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>joda-time</groupId> -->
+<!-- 			<artifactId>joda-time</artifactId> -->
+<!-- 			<version>1.6.2</version> -->
+<!-- 		</dependency> -->
 
 		<!-- File Upload -->
-		<dependency>
-			<groupId>commons-fileupload</groupId>
-			<artifactId>commons-fileupload</artifactId>
-			<version>1.2.2</version>
-		</dependency>	
-		<dependency>
-			<groupId>commons-io</groupId>
-			<artifactId>commons-io</artifactId>
-			<version>2.0.1</version>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>commons-fileupload</groupId> -->
+<!-- 			<artifactId>commons-fileupload</artifactId> -->
+<!-- 			<version>1.2.2</version> -->
+<!-- 		</dependency>	 -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>commons-io</groupId> -->
+<!-- 			<artifactId>commons-io</artifactId> -->
+<!-- 			<version>2.0.1</version> -->
+<!-- 		</dependency> -->
 			
 		<!-- Test -->
 		<dependency>
@@ -170,24 +176,24 @@
 			<version>4.8.2</version>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>xmlunit</groupId>
-			<artifactId>xmlunit</artifactId>
-			<version>1.2</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.jayway.jsonpath</groupId>
-			<artifactId>json-path</artifactId>
-			<version>0.8.1</version>
-			<scope>test</scope>
-		</dependency>
-  		<dependency>
-			<groupId>org.hamcrest</groupId>
-			<artifactId>hamcrest-library</artifactId>
-			<version>1.3</version>
-			<scope>test</scope>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>xmlunit</groupId> -->
+<!-- 			<artifactId>xmlunit</artifactId> -->
+<!-- 			<version>1.2</version> -->
+<!-- 			<scope>test</scope> -->
+<!-- 		</dependency> -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>com.jayway.jsonpath</groupId> -->
+<!-- 			<artifactId>json-path</artifactId> -->
+<!-- 			<version>0.8.1</version> -->
+<!-- 			<scope>test</scope> -->
+<!-- 		</dependency> -->
+<!--   		<dependency> -->
+<!-- 			<groupId>org.hamcrest</groupId> -->
+<!-- 			<artifactId>hamcrest-library</artifactId> -->
+<!-- 			<version>1.3</version> -->
+<!-- 			<scope>test</scope> -->
+<!-- 		</dependency> -->
         
 	</dependencies>
 	<repositories>	
@@ -200,12 +206,12 @@
 			<snapshots><enabled>true</enabled></snapshots>
 		</repository>
 		<!-- For developing against latest Spring milestones -->
-		<repository>
-			<id>org.springframework.maven.milestone</id>
-			<name>Spring Maven Milestone Repository</name>
-			<url>http://maven.springframework.org/milestone</url>
-			<snapshots><enabled>false</enabled></snapshots>
-		</repository>
+<!-- 		<repository> -->
+<!-- 			<id>org.springframework.maven.milestone</id> -->
+<!-- 			<name>Spring Maven Milestone Repository</name> -->
+<!-- 			<url>http://maven.springframework.org/milestone</url> -->
+<!-- 			<snapshots><enabled>false</enabled></snapshots> -->
+<!-- 		</repository> -->
 	</repositories>
 	<build>
 		<plugins>
