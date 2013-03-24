@@ -20,7 +20,7 @@ public class DatabaseConfiguration {
  
     @Value("${dataSource.password}")
     private String password;
- 
+    
     @Bean
     public DataSource dataSource() {
         SimpleDriverDataSource simpleDriverDataSource = new SimpleDriverDataSource();
