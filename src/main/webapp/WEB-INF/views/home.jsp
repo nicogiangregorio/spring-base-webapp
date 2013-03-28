@@ -11,23 +11,60 @@
 	    </style>
 		<script src='/spring-base-webapp/dwr/engine.js'></script>
         <script src='/spring-base-webapp/dwr/interface/CitizenServiceDwr.js'></script>
-        <script type="text/javascript" 
-        	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbSCjuMfECjoa5q3TGzPPXDYg7A0GxNEQ&sensor=false"></script>
 		<script type="text/javascript">
-		window.onload = function() {
-			CitizenServiceDwr.getCitizenLocations();
+// 		window.onload = function() {
+// 			CitizenServiceDwr.getCitizenLocations(dwrCallback);
 			
-		};
+// 		};
+		function dwrCallback(data) {
+			for (var ii = 0, len = data.length; ii < len; ii++ ) {
+				MARKER_UTIL.setMarker(data[ii]);
+			}
+		}
 		function initialize() {
 	        var mapOptions = {
-	          center: new google.maps.LatLng(-34.397, 150.644),
-	          zoom: 8,
+	          center: new google.maps.LatLng(41.9, 12.483333),
+	          zoom: 6,
 	          mapTypeId: google.maps.MapTypeId.ROADMAP
 	        };
-	        var map = new google.maps.Map(document.getElementById("map-canvas"),
-	            mapOptions);
+	        map = new google.maps.Map(document.getElementById("map-canvas"),mapOptions);
 	      }
-	      google.maps.event.addDomListener(window, 'load', initialize);
+		function loadScript() {
+			  var script = document.createElement("script");
+			  script.type = "text/javascript";
+			  script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyBbSCjuMfECjoa5q3TGzPPXDYg7A0GxNEQ&sensor=false&callback=initialize";
+			  document.body.appendChild(script);
+		}
+		window.onload = loadScript;CitizenServiceDwr.getCitizenLocations(dwrCallback);
+		
+		var MARKER_UTIL = function () {
+			return {
+				setMarker: function(singleLocation) {
+					var marker = new google.maps.Marker({
+					    position: new google.maps.LatLng(singleLocation.latitude, singleLocation.longitude),
+					    map: map,
+					});
+					var infowindow = new google.maps.InfoWindow({
+					    content: '<p><b>Name:</b> ' + singleLocation.name + '</p>'
+					    	+	 '<p><b>Last name:</b> ' + singleLocation.surname + '</p>'
+					    	+	 '<p><b>Region:</b> ' + singleLocation.dscRegione + '</p>'
+					    	+	 '<p><b>city:</b> ' + singleLocation.dscCity + '</p>'
+					});
+					google.maps.event.addListener(marker, 'mouseover', function() {
+						infowindow.open(map,marker);
+					});
+					google.maps.event.addListener(marker, 'mouseout', function() {
+						infowindow.close(map,marker);
+					});
+// 					google.maps.event.addListener(marker, 'click', function() {
+// 						infowindow.open(map,marker);
+// 						google.maps.event.clearListeners(marker, 'mouseover');
+// 						google.maps.event.clearListeners(marker, 'mouseout');
+// 					});
+				}				
+			};
+		}();
+		
 		</script>
     </head>
     <body>

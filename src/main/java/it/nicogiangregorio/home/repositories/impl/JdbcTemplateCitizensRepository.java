@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.postgresql.geometric.PGpoint;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -44,7 +45,8 @@ public class JdbcTemplateCitizensRepository implements CitizensRepository, Initi
 						int age = rs.getInt("age");
 						String dscCity = rs.getString("dsc_city");
 						String dscRegione = rs.getString("regione");
-						return new CitizenLocation(idCitizen, name, surname, age, dscCity, dscRegione);
+						PGpoint coordinates = (PGpoint) rs.getObject("COORDINATES");
+						return new CitizenLocation(idCitizen, name, surname, age, dscCity, dscRegione, coordinates);
 					}
 		});
 	}

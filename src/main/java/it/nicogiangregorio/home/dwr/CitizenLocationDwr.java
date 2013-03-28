@@ -4,6 +4,8 @@ import it.nicogiangregorio.home.domain.CitizenLocation;
 
 import java.io.Serializable;
 
+import org.postgresql.geometric.PGpoint;
+
 public class CitizenLocationDwr implements Serializable{
 
 	private static final long serialVersionUID = 2907377802597332830L;
@@ -13,6 +15,8 @@ public class CitizenLocationDwr implements Serializable{
 	private int age;
 	private String dscCity;
 	private String dscRegione;
+	private double latitude;
+	private double longitude;
 
 	public CitizenLocationDwr() {}
 	
@@ -23,6 +27,9 @@ public class CitizenLocationDwr implements Serializable{
 		this.age = citizenLocation.getAge();
 		this.dscCity = citizenLocation.getDscCity();
 		this.dscRegione = citizenLocation.getDscRegione();
+		PGpoint pgCoords = citizenLocation.getCoordinates();
+		latitude = pgCoords.x;
+		longitude = pgCoords.y;
 	}
 
 	public String getIdCitizen() {
@@ -72,11 +79,29 @@ public class CitizenLocationDwr implements Serializable{
 	public void setDscRegione(String dscRegione) {
 		this.dscRegione = dscRegione;
 	}
+	
+	
+	public double getLatitude() {
+		return latitude;
+	}
+
+	public void setLatitude(double latitude) {
+		this.latitude = latitude;
+	}
+
+	public double getLongitude() {
+		return longitude;
+	}
+
+	public void setLongitude(double longitude) {
+		this.longitude = longitude;
+	}
 
 	@Override
 	public String toString() {
 		return "CitizenLocationDwr [idCitizen=" + idCitizen + ", name=" + name
 				+ ", surname=" + surname + ", age=" + age + ", dscCity="
-				+ dscCity + ", dscRegione=" + dscRegione + "]";
+				+ dscCity + ", dscRegione=" + dscRegione + ", latitude="
+				+ latitude + ", longitude=" + longitude + "]";
 	}
 }
