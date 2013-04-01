@@ -6,25 +6,17 @@
                     http://www.springframework.org/schema/security 
                     http://www.springframework.org/schema/security/spring-security-3.1.xsd">
 
-<!--     <http use-expressions="true"> -->
-<!--         <intercept-url pattern="/index.jsp" access="permitAll" /> -->
-<!-- 		<intercept-url pattern="/secure/extreme/**" access="hasRole('supervisor')" /> -->
-<!-- 		<intercept-url pattern="/secure/**" access="isAuthenticated()" /> -->
-<!-- 		<intercept-url pattern="/listAccounts.html" access="isAuthenticated()" /> -->
-<!-- 		<intercept-url pattern="/post.html" access="hasAnyRole('supervisor','teller')" /> -->
-<!-- 		<intercept-url pattern="/**" access="denyAll" /> -->
-<!-- 		<form-login /> -->
-<!--         <form-login /> -->
-<!--     </http> -->
 	<http use-expressions="true">
 		<intercept-url pattern="/" access="permitAll" />
 		<intercept-url pattern="/dwr/**" access="permitAll" />
-		<intercept-url pattern="/secure/extreme/**" access="hasRole('supervisor')" />
+		<intercept-url pattern="/static/**" access="permitAll" />
+		<intercept-url pattern="/secure/extreme/**" access="hasRole('admin')" />
 		<intercept-url pattern="/secure/**" access="isAuthenticated()" />
 		<intercept-url pattern="/listAccounts.html" access="isAuthenticated()" />
-		<intercept-url pattern="/post.html" access="hasAnyRole('supervisor','teller')" />
-		<intercept-url pattern="/**" access="denyAll" />
+		<intercept-url pattern="/post.html" access="hasAnyRole('admin','user')" />
+		<intercept-url pattern="/**" access="hasAnyRole('admin','user')" />
 		<form-login />
+		<logout />
 	</http>
     <authentication-manager>
         <authentication-provider>

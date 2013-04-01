@@ -19,10 +19,10 @@ public class HomeController {
 	@RequestMapping(value = "/")
     public String home() {
 		
-		List<CitizenLocation> locations = citizenService.getCitizenLocations("1");
+//		List<CitizenLocation> locations = citizenService.getCitizenLocations("1");
 		
-        System.out.println("HomeController: Passing through...");
-        System.out.println("number of locations: " + locations.size());
+//        System.out.println("HomeController: Passing through...");
+//        System.out.println("number of locations: " + locations.size());
         return "home";
     }
 	
