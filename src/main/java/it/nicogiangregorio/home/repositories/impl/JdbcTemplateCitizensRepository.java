@@ -23,9 +23,6 @@ public class JdbcTemplateCitizensRepository implements CitizensRepository, Initi
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	
-//	@Value("${jdbc.sql.citizens.geolocation}")
-//	private String getCitizensLocations;
-	
 	@Override
 	public void afterPropertiesSet() throws Exception {
 		Assert.notNull(CitizensQueries.GET_CITIZEN_LOCATIONS, "the getCitizenLocations query cannot be null");
