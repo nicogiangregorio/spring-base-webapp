@@ -1,3 +1,14 @@
+/**
+ * Need to create user 'geo' first
+ */
+
+-- Schema: geo
+
+-- DROP SCHEMA geo;
+
+CREATE SCHEMA geo
+  AUTHORIZATION geo;
+
 -- Table: citizens
 
 -- DROP TABLE citizens;
