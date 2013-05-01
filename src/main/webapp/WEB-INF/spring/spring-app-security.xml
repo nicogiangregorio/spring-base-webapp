@@ -9,6 +9,7 @@
 		<intercept-url pattern="/" access="isAuthenticated()" />
 		<intercept-url pattern="/login" access="permitAll()" />
 		<intercept-url pattern="/loginfailed" access="permitAll()" />
+		<intercept-url pattern="/header" access="permitAll()" />
 		<intercept-url pattern="/dwr/**" access="permitAll" />
 		<intercept-url pattern="/static/**" access="permitAll" />
 		<intercept-url pattern="/secure/extreme/**" access="hasRole('admin')" />

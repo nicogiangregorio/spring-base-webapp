@@ -11,11 +11,13 @@
 	    </style>
 		<script src='/spring-base-webapp/dwr/engine.js'></script>
         <script src='/spring-base-webapp/dwr/interface/CitizenServiceDwr.js'></script>
+        <script src='static/js/jquery-1.9.1.min.js'></script>
 		<script type="text/javascript">
-// 		window.onload = function() {
-// 			CitizenServiceDwr.getCitizenLocations(dwrCallback);
-			
-// 		};
+		
+		$(document).ready(function(){
+			$("#header").load("header");
+		});
+		
 		function dwrCallback(data) {
 			for (var ii = 0, len = data.length; ii < len; ii++ ) {
 				MARKER_UTIL.setMarker(data[ii]);
@@ -56,11 +58,6 @@
 					google.maps.event.addListener(marker, 'mouseout', function() {
 						infowindow.close(map,marker);
 					});
-// 					google.maps.event.addListener(marker, 'click', function() {
-// 						infowindow.open(map,marker);
-// 						google.maps.event.clearListeners(marker, 'mouseover');
-// 						google.maps.event.clearListeners(marker, 'mouseout');
-// 					});
 				}				
 			};
 		}();
@@ -68,6 +65,7 @@
 		</script>
     </head>
     <body>
-        <div id="map-canvas"></div>
+    	<div id="header"></div>
+        <div id="map-canvas" class=row-fluid></div>
     </body>
 </html>

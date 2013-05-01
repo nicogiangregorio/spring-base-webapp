@@ -13,6 +13,7 @@
 	
 	<mvc:view-controller  path="/login" view-name="login"/>
 	<mvc:view-controller  path="/loginfailed" view-name="loginfailed"/>
+	<mvc:view-controller  path="/header" view-name="header"/>
 	
 	<mvc:annotation-driven/>
 
