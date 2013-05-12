@@ -9,10 +9,9 @@
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
 		http://www.directwebremoting.org/schema/spring-dwr http://www.directwebremoting.org/schema/spring-dwr-3.0.xsd">
 
-	<context:component-scan base-package="it.nicogiangregorio.home" />
+	<context:component-scan base-package="it.nicogiangregorio" />
 	
 	<mvc:view-controller  path="/login" view-name="login"/>
-	<mvc:view-controller  path="/loginfailed" view-name="loginfailed"/>
 	<mvc:view-controller  path="/header" view-name="header"/>
 	
 	<mvc:annotation-driven/>

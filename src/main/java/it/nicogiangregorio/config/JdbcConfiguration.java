@@ -1,4 +1,4 @@
-package it.nicogiangregorio.util;
+package it.nicogiangregorio.config;
 
 import javax.sql.DataSource;
 

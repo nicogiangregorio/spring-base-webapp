@@ -17,7 +17,7 @@
 		<intercept-url pattern="/listAccounts.html" access="isAuthenticated()" />
 		<intercept-url pattern="/post.html" access="hasAnyRole('admin','ROLE_USER')" />
 		<intercept-url pattern="/**" access="hasAnyRole('admin','ROLE_USER')" />
-		<form-login login-page="/login" default-target-url="/" authentication-failure-url="/loginfailed" />
+		<form-login login-page="/login" default-target-url="/static/json/login_success.json" authentication-failure-url="/static/json/login_failed.json" />
 		<logout />
 	</http>
 

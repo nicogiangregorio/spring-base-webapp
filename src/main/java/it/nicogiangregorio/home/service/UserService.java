@@ -1,4 +1,4 @@
-package it.nicogiangregorio.home.service.impl;
+package it.nicogiangregorio.home.service;
 
 import it.nicogiangregorio.home.domain.UserBean;
 

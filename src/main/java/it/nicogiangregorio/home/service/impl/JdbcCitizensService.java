@@ -2,6 +2,7 @@ package it.nicogiangregorio.home.service.impl;
 
 import it.nicogiangregorio.home.domain.CitizenLocation;
 import it.nicogiangregorio.home.repositories.CitizensRepository;
+import it.nicogiangregorio.home.service.CitizensService;
 
 import java.util.List;
 
