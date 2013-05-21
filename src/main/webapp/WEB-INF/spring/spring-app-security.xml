@@ -8,6 +8,7 @@
 	<http use-expressions="true">
 		<intercept-url pattern="/" access="isAuthenticated()" />
 		<intercept-url pattern="/login" access="permitAll()" />
+		<intercept-url pattern="/logout" access="isAuthenticated()" />
 		<intercept-url pattern="/loginfailed" access="permitAll()" />
 		<intercept-url pattern="/header" access="permitAll()" />
 		<intercept-url pattern="/dwr/**" access="permitAll" />
@@ -17,7 +18,10 @@
 		<intercept-url pattern="/listAccounts.html" access="isAuthenticated()" />
 		<intercept-url pattern="/post.html" access="hasAnyRole('admin','ROLE_USER')" />
 		<intercept-url pattern="/**" access="hasAnyRole('admin','ROLE_USER')" />
-		<form-login login-page="/login" default-target-url="/static/json/login_success.json" authentication-failure-url="/static/json/login_failed.json" />
+		<form-login login-page="/login" 
+		    default-target-url="/static/json/login_success.json" 
+		    authentication-failure-url="/static/json/login_failed.json"
+		/>
 		<logout />
 	</http>
 
