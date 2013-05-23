@@ -8,7 +8,7 @@
 	<http use-expressions="true">
 		<intercept-url pattern="/" access="isAuthenticated()" />
 		<intercept-url pattern="/login" access="permitAll()" />
-		<intercept-url pattern="/logout" access="isAuthenticated()" />
+		<intercept-url pattern="/user_info" access="isAuthenticated()" />
 		<intercept-url pattern="/loginfailed" access="permitAll()" />
 		<intercept-url pattern="/header" access="permitAll()" />
 		<intercept-url pattern="/dwr/**" access="permitAll" />

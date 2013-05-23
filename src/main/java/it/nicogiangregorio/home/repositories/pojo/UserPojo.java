@@ -1,10 +1,10 @@
-package it.nicogiangregorio.home.domain;
+package it.nicogiangregorio.home.repositories.pojo;
 
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
-public class UserBean {
+public class UserPojo {
 	private final BigDecimal userId;
 	private final String userName;
 	private final String name;
@@ -15,7 +15,7 @@ public class UserBean {
 	private String password;
 	private boolean active;
 	
-	public UserBean(BigDecimal userId, String userName, String name,
+	public UserPojo(BigDecimal userId, String userName, String name,
 			String lastName, String email, Date activationDate,
 			List<String> roles, String password, boolean active) {
 		this.userId = userId;

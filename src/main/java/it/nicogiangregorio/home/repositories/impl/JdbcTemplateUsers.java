@@ -1,8 +1,8 @@
 package it.nicogiangregorio.home.repositories.impl;
 
-import it.nicogiangregorio.home.domain.UserBean;
 import it.nicogiangregorio.home.repositories.UserQueries;
 import it.nicogiangregorio.home.repositories.UserRepository;
+import it.nicogiangregorio.home.repositories.pojo.UserPojo;
 
 import java.math.BigDecimal;
 import java.sql.ResultSet;
@@ -25,11 +25,11 @@ public class JdbcTemplateUsers implements InitializingBean, UserRepository {
 	
 	@Override
 	@Transactional(readOnly = true)
-	public UserBean getUserByEmail(String email) {
-		UserBean user = (UserBean) jdbcTemplate.queryForObject(UserQueries.SQL_LOGIN, new RowMapper<UserBean>(){
+	public UserPojo getUserByEmail(String email) {
+		UserPojo user = (UserPojo) jdbcTemplate.queryForObject(UserQueries.SQL_LOGIN, new RowMapper<UserPojo>(){
 
 			@Override
-			public UserBean mapRow(ResultSet rs, int rowNum) throws SQLException {
+			public UserPojo mapRow(ResultSet rs, int rowNum) throws SQLException {
 				BigDecimal userId = rs.getBigDecimal("id_user");
 				String userName = rs.getString("user_name");
 				String name = rs.getString("name");
@@ -38,7 +38,7 @@ public class JdbcTemplateUsers implements InitializingBean, UserRepository {
 				String password= rs.getString("password");
 				String[] roles = (String[]) rs.getArray("roles").getArray();
 				
-				return new UserBean(userId, userName, name, lastName, email, null, Arrays.asList(roles), password, true);
+				return new UserPojo(userId, userName, name, lastName, email, null, Arrays.asList(roles), password, true);
 			}
 			
 		}, email);

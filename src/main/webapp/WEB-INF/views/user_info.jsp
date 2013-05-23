@@ -10,8 +10,8 @@
 </head>
 <body>
 <sec:authorize access="isAuthenticated()">
-	<%=SecurityContextHolder.getContext().getAuthentication().getName()%>
-	<sec:authentication property="principal"/>
+	<sec:authentication property="principal.username"/>
+	<sec:authentication property="principal.email"/>
 </sec:authorize>
 <sec:authorize access="!isAuthenticated()">
 	Not authenticated
