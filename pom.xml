@@ -146,7 +146,11 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-
+		<dependency>
+			<groupId>it.nicogiangregorio.simple-cache</groupId>
+				<artifactId>simple-cache</artifactId>
+				<version>1.0</version>
+	 	</dependency>
 		<!-- Jackson JSON Processor -->
 <!-- 		<dependency> -->
 <!-- 			<groupId>org.codehaus.jackson</groupId> -->
@@ -234,13 +238,6 @@
 			<releases><enabled>false</enabled></releases>
 			<snapshots><enabled>true</enabled></snapshots>
 		</repository>
-		<!-- For developing against latest Spring milestones -->
-<!-- 		<repository> -->
-<!-- 			<id>org.springframework.maven.milestone</id> -->
-<!-- 			<name>Spring Maven Milestone Repository</name> -->
-<!-- 			<url>http://maven.springframework.org/milestone</url> -->
-<!-- 			<snapshots><enabled>false</enabled></snapshots> -->
-<!-- 		</repository> -->
 		<repository>
 			<!-- Please consider setting up your own on-site repository proxy such 
 				as with Nexus and pointing the url element below at that instead - -->

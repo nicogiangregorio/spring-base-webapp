@@ -15,8 +15,5 @@
 	<sec:authentication property="principal.lastName"/>
 	<sec:authentication property="principal.email"/>
 </sec:authorize>
-<sec:authorize access="!isAuthenticated()">
-	Not authenticated
-</sec:authorize>
 </body>
 </html>

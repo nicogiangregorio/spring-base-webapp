@@ -1,11 +1,9 @@
 package it.nicogiangregorio.home.repositories.pojo;
 
-import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
 public class UserPojo {
-	private final BigDecimal userId;
 	private final String userName;
 	private final String name;
 	private final String lastName;
@@ -15,10 +13,9 @@ public class UserPojo {
 	private String password;
 	private boolean active;
 	
-	public UserPojo(BigDecimal userId, String userName, String name,
+	public UserPojo(String userName, String name,
 			String lastName, String email, Date activationDate,
 			List<String> roles, String password, boolean active) {
-		this.userId = userId;
 		this.userName = userName;
 		this.name = name;
 		this.lastName = lastName;
@@ -27,10 +24,6 @@ public class UserPojo {
 		this.roles = roles;
 		this.password = password;
 		this.active = active;
-	}
-
-	public BigDecimal getUserId() {
-		return userId;
 	}
 
 	public String getUserName() {
@@ -72,5 +65,12 @@ public class UserPojo {
 	public void setActive(boolean active) {
 		this.active = active;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "UserPojo [userName=" + userName + ", name=" + name
+				+ ", lastName=" + lastName + ", email=" + email
+				+ ", activationDate=" + activationDate + ", roles=" + roles
+				+ ", password=" + password + ", active=" + active + "]";
+	}
 }

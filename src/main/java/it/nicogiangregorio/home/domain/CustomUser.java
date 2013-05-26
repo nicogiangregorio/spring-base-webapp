@@ -2,7 +2,6 @@ package it.nicogiangregorio.home.domain;
 
 import it.nicogiangregorio.home.repositories.pojo.UserPojo;
 
-import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.Date;
 
@@ -16,7 +15,6 @@ public class CustomUser extends User {
 	private String email;
 	private String name;
 	private String lastName;
-	private BigDecimal userId;
 
 	public CustomUser(UserPojo userBean, Collection<GrantedAuthority> authorities) {
 		super(userBean.getUserName(), 
@@ -31,7 +29,6 @@ public class CustomUser extends User {
 		this.email = userBean.getEmail();
 		this.name = userBean.getName();
 		this.lastName = userBean.getLastName();
-		this.userId = userBean.getUserId();
 	}
 
 	public Date getActivationDate() {
@@ -50,14 +47,9 @@ public class CustomUser extends User {
 		return lastName;
 	}
 
-	public BigDecimal getUserId() {
-		return userId;
-	}
-
 	@Override
 	public String toString() {
 		return "CustomUser [activationDate=" + activationDate + ", email="
-				+ email + ", name=" + name + ", lastName=" + lastName
-				+ ", userId=" + userId + "]";
+				+ email + ", name=" + name + ", lastName=" + lastName + "]";
 	}
 }

@@ -6,6 +6,13 @@
       body {
         padding-top: 40px; /* 40px to make the container go all the way to the bottom of the topbar */
       }
+      ul.nav li.dropdown:hover ul.dropdown-menu{
+	    display: block;    
+	}
+
+	a.menu:after, .dropdown-toggle:after {
+	  content: none;
+	}
     </style>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="static/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
@@ -27,9 +34,23 @@
 					<li><a href="#admin">Admin</a></li>
 				</sec:authorize>
 			</ul>
-			<p class="navbar-text pull-right">
-              Logged in as <a href="#" class="navbar-link"><sec:authentication property="principal.username"/> </a>
-            </p>
+             <ul class="nav pull-right">
+             <li class="dropdown">
+			<a class="dropdown-toggle" href="#" class="navbar-link"> Logged in as <sec:authentication property="principal.username"/> </a>              	
+              <ul class="dropdown-menu">
+	                <li><a href="#"><sec:authentication property="principal.name"/></a> <sec:authentication property="principal.lastName"/></li>
+	                <li><a href="#"><sec:authentication property="principal.email"/></a></li>
+	                <li class="divider"></li>
+	                <li><a href="/j_spring_logout">Logout</a></li>
+              </ul>
+            </li>
+          </ul>
+            <ul class="dropdown-menu">
+				<li><a href="#">Secondary link</a></li>
+				<li><a href="#">Something else here</a></li>
+				<li class="divider"></li>
+				<li><a href="#">Another link</a></li>
+			</ul>
 		</div>
 	</div>
 </div>

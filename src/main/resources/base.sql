@@ -56,21 +56,19 @@ ALTER TABLE cities
 
 CREATE TABLE users
 (
-  "ID_USER" numeric NOT NULL,
-  "USER_NAME" character varying NOT NULL,
-  "NAME" character varying,
-  "LAST_NAME" character varying,
-  "EMAIL" character varying,
-  "ACTIVATION_DATE" timestamp without time zone NOT NULL,
-  "DELETION_DATE" time without time zone,
-  CONSTRAINT "PK_USER" PRIMARY KEY ("ID_USER")
+  user_name character varying NOT NULL,
+  name character varying,
+  last_name character varying,
+  email character varying,
+  activation_date timestamp without time zone NOT NULL,
+  password character varying,
+  deletion_date timestamp without time zone
 )
 WITH (
   OIDS=FALSE
 );
 ALTER TABLE users
   OWNER TO geo;
-
   
 -- Table: "USER_ROLES"
 
@@ -118,24 +116,6 @@ CREATE SEQUENCE seq_id_role
 ALTER TABLE seq_id_role
   OWNER TO geo;
 
-  
-  -- Sequence: "SEQ_ID_USER"
-
--- DROP SEQUENCE "SEQ_ID_USER";
-
-CREATE SEQUENCE seq_id_user
-  INCREMENT 1
-  MINVALUE 1
-  MAXVALUE 9223372036854775807
-  START 1
-  CACHE 1;
-ALTER TABLE seq_id_user
-  OWNER TO geo;
-
-  
-  
-  
-  
 
 INSERT INTO geo.citizens(
                         id, name, surname, age, city)
@@ -154,8 +134,7 @@ INSERT INTO geo.cities(
     
 INSERT INTO USERS
 VALUES
-((select nextval('SEQ_ID_USER')),
-  'admin',
+( 'admin',
   'Nico',
   'Giangregorio',
   'nicogorio@gmail.com',
