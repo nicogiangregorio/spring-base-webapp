@@ -1,6 +1,6 @@
 package it.nicogiangregorio.home;
 
-import it.nicogiangregorio.home.domain.CitizenLocation;
+import it.nicogiangregorio.home.model.CitizenLocation;
 import it.nicogiangregorio.home.service.CitizensService;
 
 import java.util.List;

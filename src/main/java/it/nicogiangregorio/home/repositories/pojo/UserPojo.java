@@ -1,5 +1,7 @@
 package it.nicogiangregorio.home.repositories.pojo;
 
+import it.nicogiangregorio.home.model.UserRole;
+
 import java.util.Date;
 import java.util.List;
 
@@ -9,13 +11,13 @@ public class UserPojo {
 	private final String lastName;
 	private final String email;
 	private final Date activationDate;
-	private final List<String> roles;
+	private final List<UserRole> roles;
 	private String password;
 	private boolean active;
 	
 	public UserPojo(String userName, String name,
 			String lastName, String email, Date activationDate,
-			List<String> roles, String password, boolean active) {
+			List<UserRole> roles, String password, boolean active) {
 		this.userName = userName;
 		this.name = name;
 		this.lastName = lastName;
@@ -46,7 +48,7 @@ public class UserPojo {
 		return activationDate;
 	}
 
-	public List<String> getRoles() {
+	public List<UserRole> getRoles() {
 		return roles;
 	}
 

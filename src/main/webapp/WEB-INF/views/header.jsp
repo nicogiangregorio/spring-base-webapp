@@ -30,8 +30,8 @@
 				<li class="active"><a href="#">Home</a></li>
 				<li><a href="#about">About</a></li>
 				<li><a href="#contact">Contact</a></li>
-				<sec:authorize ifAllGranted="admin">
-					<li><a href="#admin">Admin</a></li>
+				<sec:authorize ifAllGranted="ADMIN">
+					<li><a href="admin">Admin</a></li>
 				</sec:authorize>
 			</ul>
              <ul class="nav pull-right">
@@ -41,7 +41,7 @@
 	                <li><a href="#"><sec:authentication property="principal.name"/></a> <sec:authentication property="principal.lastName"/></li>
 	                <li><a href="#"><sec:authentication property="principal.email"/></a></li>
 	                <li class="divider"></li>
-	                <li><a href="/j_spring_logout">Logout</a></li>
+	                <li><a href="j_spring_logout">Logout</a></li>
               </ul>
             </li>
           </ul>

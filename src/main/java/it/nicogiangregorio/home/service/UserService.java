@@ -1,4 +1,4 @@
-package it.nicogiangregorio.home.repositories;
+package it.nicogiangregorio.home.service;
 
 import it.nicogiangregorio.home.repositories.pojo.UserPojo;
 
@@ -7,16 +7,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
-public interface UserRepository {
-	
-	/**
-	 * Retrieve user row from database, in order to login
-	 * 
-	 * @param userId : user identifier
-	 * @return
-	 */
-	public UserPojo login(String userId);
-
+public interface UserService {
 	/**
 	 * Get list of all users
 	 * 
@@ -56,9 +47,8 @@ public interface UserRepository {
 	public Map<String, BigDecimal> getRoles();
 	
 	/**
-	 * Invalidate user, logical deletion 
+	 * Remove user from database 
 	 * @param user
 	 */
 	void deleteUser(UserPojo user);
-	
 }

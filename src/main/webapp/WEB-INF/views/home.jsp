@@ -12,10 +12,13 @@
 		<script src='/spring-base-webapp/dwr/engine.js'></script>
         <script src='/spring-base-webapp/dwr/interface/CitizenServiceDwr.js'></script>
         <script src='static/js/jquery-1.9.1.min.js'></script>
+        <script type="text/javascript" src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBbSCjuMfECjoa5q3TGzPPXDYg7A0GxNEQ&sensor=false'></script>
 		<script type="text/javascript">
 		
 		$(document).ready(function(){
+			initialize();
 			$("#header").load("header");
+			//CitizenServiceDwr.getCitizenLocations(dwrCallback);
 		});
 		
 		function dwrCallback(data) {
@@ -31,13 +34,6 @@
 	        };
 	        map = new google.maps.Map(document.getElementById("map-canvas"),mapOptions);
 	      }
-		function loadScript() {
-			  var script = document.createElement("script");
-			  script.type = "text/javascript";
-			  script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyBbSCjuMfECjoa5q3TGzPPXDYg7A0GxNEQ&sensor=false&callback=initialize";
-			  document.body.appendChild(script);
-		}
-		window.onload = loadScript;CitizenServiceDwr.getCitizenLocations(dwrCallback);
 		
 		var MARKER_UTIL = function () {
 			return {
